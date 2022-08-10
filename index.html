@@ -2,15 +2,8 @@
 
 <script>
 
-var exercise_count = 0
-var exercise_property_counts = {}
-
 function addExercise() {
-    const newExerciseId = "exercise_" + exercise_count // FIX ME --> should not be hardcoded as exercise 0
-    exercise_count += 1
-
     const newExercise = document.createElement("div")
-    newExercise.id = newExerciseId
      // and give it some content
     const newContent = document.createTextNode("Name: ");
     // add the text node to the newly created div
@@ -23,11 +16,11 @@ function addExercise() {
 
     const addNewPropertyButton = document.createElement("button")
     addNewPropertyButton.textContent = "Add new property"
-    addNewPropertyButton.onclick = () => { addNewPropertyToExercise(newExerciseId) }
+    addNewPropertyButton.onclick = () => { addNewPropertyToExercise(newExercise) }
     newExercise.appendChild(addNewPropertyButton)
 
     const exerciseProperties = document.createElement("div")
-    exerciseProperties.id = newExerciseId + "_" + "properties"
+    exerciseProperties.className = "exercise_properties"
     newExercise.appendChild(exerciseProperties)
 
     const deleteExerciseButton = document.createElement("button")
@@ -43,12 +36,9 @@ function deleteExercise(exercise) {
     document.getElementById("exercises").removeChild(exercise)
 }
 
-function addNewPropertyToExercise(exerciseId) {
+function addNewPropertyToExercise(exercise) {
     // Code to add a new property to an exercise
-    const newExercisePropertyId = newExerciseId + "_" + "property" + "_" + document.getElementById(newExerciseId + "_" + "properties").childElementCount
-
     const newExerciseProperty = document.createElement("div")
-    newExerciseProperty.id = newExercisePropertyId
     const newExercisePropertyKey = document.createElement("input")
     newExercisePropertyKey.type = "text"
     newExerciseProperty.appendChild(newExercisePropertyKey)
@@ -58,10 +48,14 @@ function addNewPropertyToExercise(exerciseId) {
 
     const deleteExercisePropertyButton = document.createElement("button")
     deleteExercisePropertyButton.textContent = "Delete property"
-    deleteExercisePropertyButton.onclick = () => { deleteExerciseProperty(newExercisePropertyId) }
+    deleteExercisePropertyButton.onclick = () => { deleteExerciseProperty(exercise, newExerciseProperty) }
     newExercise.appendChild(deleteExerciseButton)
 
-    document.getElementById(newExerciseId + "_" + "properties").appendChild(newExerciseProperty)
+    exercise.getElementsByClassName("exercise_properties")[0].appendChild(newExerciseProperty)
+}
+
+function deleteExerciseProperty(exercise, exerciseProperty) {
+    exercise.getElementsByClassName("exercise_properties")[0].removeChild(exerciseProperty)
 }
 
 function makeWorkout() {
