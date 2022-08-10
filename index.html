@@ -1,11 +1,63 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <script>
+
+var exercise_ids = []
+
+// var exercises = []
+
 function addExercise() {
     console.log("Adding exercise")
     window.alert("Adding exercise")
+    // Code to create a new exercise box here
+    // exercises.push({"name": ""})
+
+    const newExerciseId = "exercise_0"
+
+    const newExercise = document.createElement("div")
+    newExercise.id = newExerciseId
+     // and give it some content
+    const newContent = document.createTextNode("Name: ");
+    // add the text node to the newly created div
+    newExercise.appendChild(newContent);
+
+    const exerciseNameField = document.createElement("input")
+    exerciseNameField.type = "text"
+    exerciseNameField.required = true
+    newExercise.appendChild(exerciseNameField)
+
+    const addNewPropertyButton = document.createElement("button")
+    addNewPropertyButton.onclick = () => { addNewProperty(newExerciseId) }
+    newExercise.appendChild(addNewPropertyButton)
+
+    const exerciseProperties = document.createElement("div")
+    exerciseProperties.id = newExerciseId + "_" + "properties"
+    newExercise.appendChild(exerciseProperties)
+
+    const deleteExerciseButton = document.createElement("button")
+    deleteExerciseButton.onclick = () => { deleteExercise(newExerciseId) }
+    newExercise.appendChild(deleteExerciseButton)
+
+    document.getElementById("exercises").appendChild(newExercise)
+
+}
+
+function addNewPropertyToExercise(exerciseId) {
+    // Code to add a new property to an exercise
 }
 
 function makeWorkout() {
     window.alert("Workout machten'ed")
+    // Read what the user has input
+    // Save into local storage
+
+    // var numberOfSavedWorkouts = parseInt(localStorage.getItem("numberOfSavedWorkouts"))
+    // if (numberOfSavedWorkouts == null) {
+    //    numberOfSavedWorkouts = 0
+    //
+    // }
+    // localStorage.setItem("workout_" + numberOfSavedWorkouts + 1, exercises.toString())
+    // localStorage.setItem("numberOfSavedWorkouts", (numberOfSavedWorkouts + 1).toString())
 }
 
 </script>
@@ -13,7 +65,7 @@ function makeWorkout() {
 <h1> Hello World! </h1>
 
 <div id="exercises">
-    
+
 </div>
 
 <button onclick="addExercise()"> Add exercise </button>
