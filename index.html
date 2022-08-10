@@ -2,12 +2,12 @@
 
 <script>
 
-var exercise_ids = []
-
-// var exercises = []
+var exercise_count = 0
+var exercise_property_counts = {}
 
 function addExercise() {
-    const newExerciseId = "exercise_0" // FIX ME --> should not be hardcoded as exercise 0
+    const newExerciseId = "exercise_" + exercise_count // FIX ME --> should not be hardcoded as exercise 0
+    exercise_count += 1
 
     const newExercise = document.createElement("div")
     newExercise.id = newExerciseId
@@ -32,11 +32,15 @@ function addExercise() {
 
     const deleteExerciseButton = document.createElement("button")
     deleteExerciseButton.textContent = "Delete exercise"
-    deleteExerciseButton.onclick = () => { deleteExercise(newExerciseId) }
+    deleteExerciseButton.onclick = () => { deleteExercise(newExercise) }
     newExercise.appendChild(deleteExerciseButton)
 
     document.getElementById("exercises").appendChild(newExercise)
 
+}
+
+function deleteExercise(exercise) {
+    document.removeChild(exercise)
 }
 
 function addNewPropertyToExercise(exerciseId) {
@@ -76,6 +80,7 @@ function makeWorkout() {
 
 </script>
 
+<!DOCTYPE html>
 <h1> Hello World! </h1>
 
 <div id="exercises">
