@@ -49,7 +49,7 @@ function addNewPropertyToExercise(exercise) {
     const deleteExercisePropertyButton = document.createElement("button")
     deleteExercisePropertyButton.textContent = "Delete property"
     deleteExercisePropertyButton.onclick = () => { deleteExerciseProperty(exercise, newExerciseProperty) }
-    newExercise.appendChild(deleteExerciseButton)
+    newExerciseProperty.appendChild(deleteExercisePropertyButton)
 
     exercise.getElementsByClassName("exercise_properties")[0].appendChild(newExerciseProperty)
 }
