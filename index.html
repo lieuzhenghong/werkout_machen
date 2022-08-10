@@ -7,12 +7,7 @@ var exercise_ids = []
 // var exercises = []
 
 function addExercise() {
-    console.log("Adding exercise")
-    window.alert("Adding exercise")
-    // Code to create a new exercise box here
-    // exercises.push({"name": ""})
-
-    const newExerciseId = "exercise_0"
+    const newExerciseId = "exercise_0" // FIX ME --> should not be hardcoded as exercise 0
 
     const newExercise = document.createElement("div")
     newExercise.id = newExerciseId
@@ -46,6 +41,23 @@ function addExercise() {
 
 function addNewPropertyToExercise(exerciseId) {
     // Code to add a new property to an exercise
+    const newExercisePropertyId = newExerciseId + "_" + "property" + "_" + document.getElementById(newExerciseId + "_" + "properties").childElementCount
+
+    const newExerciseProperty = document.createElement("div")
+    newExerciseProperty.id = newExercisePropertyId
+    const newExercisePropertyKey = document.createElement("input")
+    newExercisePropertyKey.type = "text"
+    newExerciseProperty.appendChild(newExercisePropertyKey)
+    const newExercisePropertyValue = document.createElement("input")
+    newExercisePropertyValue.type = "text"
+    newExerciseProperty.appendChild(newExercisePropertyValue)
+
+    const deleteExercisePropertyButton = document.createElement("button")
+    deleteExercisePropertyButton.textContent = "Delete property"
+    deleteExercisePropertyButton.onclick = () => { deleteExerciseProperty(newExercisePropertyId) }
+    newExercise.appendChild(deleteExerciseButton)
+
+    document.getElementById(newExerciseId + "_" + "properties").appendChild(newExerciseProperty)
 }
 
 function makeWorkout() {
