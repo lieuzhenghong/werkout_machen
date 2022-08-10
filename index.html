@@ -27,6 +27,7 @@ function addExercise() {
     newExercise.appendChild(exerciseNameField)
 
     const addNewPropertyButton = document.createElement("button")
+    addNewPropertyButton.textContent = "Add new property"
     addNewPropertyButton.onclick = () => { addNewProperty(newExerciseId) }
     newExercise.appendChild(addNewPropertyButton)
 
@@ -35,6 +36,7 @@ function addExercise() {
     newExercise.appendChild(exerciseProperties)
 
     const deleteExerciseButton = document.createElement("button")
+    deleteExerciseButton.textContent = "Delete exercise"
     deleteExerciseButton.onclick = () => { deleteExercise(newExerciseId) }
     newExercise.appendChild(deleteExerciseButton)
 
