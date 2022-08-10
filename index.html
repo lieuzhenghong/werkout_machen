@@ -23,7 +23,7 @@ function addExercise() {
 
     const addNewPropertyButton = document.createElement("button")
     addNewPropertyButton.textContent = "Add new property"
-    addNewPropertyButton.onclick = () => { addNewProperty(newExerciseId) }
+    addNewPropertyButton.onclick = () => { addNewPropertyToExercise(newExerciseId) }
     newExercise.appendChild(addNewPropertyButton)
 
     const exerciseProperties = document.createElement("div")
